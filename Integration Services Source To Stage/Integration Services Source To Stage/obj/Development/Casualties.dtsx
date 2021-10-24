@@ -1,0 +1,780 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/19/2021 5:37:35 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-SLNDDHO"
+  DTS:CreatorName="DESKTOP-SLNDDHO\Admin"
+  DTS:DTSID="{1A7CE50D-EC60-4E2A-87C5-1A0B57CBA7F0}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Casualties"
+  DTS:PackageType="5"
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{ACF25D65-3000-4B05-91F1-EFD63FA25047}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.Accident]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{8599D859-6683-4EF3-9FB4-5EEAFF38EF59}"
+      DTS:ObjectName="LocalHost.Accident">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=Accident;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.Accident 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{F208D0BD-750F-442C-9805-328FF90DE06B}"
+      DTS:ObjectName="LocalHost.Accident 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=Accident;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.Accident_Stage]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{CB54726A-F9C5-449F-9E29-99F718BD8B07}"
+      DTS:ObjectName="LocalHost.Accident_Stage">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=Accident_Stage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.Accident_Stage 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{1738394B-DA2A-457A-81C1-D6B4B442194E}"
+      DTS:ObjectName="LocalHost.Accident_Stage 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=Accident_Stage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.Accident_Stage 2]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{3D6148ED-D4B0-46E6-A243-785D4AC41E13}"
+      DTS:ObjectName="LocalHost.Accident_Stage 2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=Accident_Stage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{D4CAC384-6CCB-48FF-A797-8D5B2229DAEC}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\Casualties Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Casualties Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Casualty]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Casualties Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.Accident]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.Accident]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].Columns[Accident_Index]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].ExternalColumns[Accident_Index]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].Columns[Accident_Index]"
+                      name="Accident_Index"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].Columns[Vehicle_Reference]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].ExternalColumns[Vehicle_Reference]"
+                      lineageId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].Columns[Vehicle_Reference]"
+                      name="Vehicle_Reference"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].Columns[Casualty_Reference]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].ExternalColumns[Casualty_Reference]"
+                      lineageId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].Columns[Casualty_Reference]"
+                      name="Casualty_Reference"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].Columns[Casualty_Class]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].ExternalColumns[Casualty_Class]"
+                      lineageId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].Columns[Casualty_Class]"
+                      name="Casualty_Class"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].Columns[Sex_of_Casualty]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].ExternalColumns[Sex_of_Casualty]"
+                      lineageId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].Columns[Sex_of_Casualty]"
+                      name="Sex_of_Casualty"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].Columns[Age_of_Casualty]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].ExternalColumns[Age_of_Casualty]"
+                      lineageId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].Columns[Age_of_Casualty]"
+                      name="Age_of_Casualty"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].Columns[Age_Band_of_Casualty]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].ExternalColumns[Age_Band_of_Casualty]"
+                      lineageId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].Columns[Age_Band_of_Casualty]"
+                      name="Age_Band_of_Casualty"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].Columns[Casualty_Severity]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].ExternalColumns[Casualty_Severity]"
+                      lineageId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].Columns[Casualty_Severity]"
+                      name="Casualty_Severity"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].Columns[Pedestrian_Location]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].ExternalColumns[Pedestrian_Location]"
+                      lineageId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].Columns[Pedestrian_Location]"
+                      name="Pedestrian_Location"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].Columns[Pedestrian_Movement]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].ExternalColumns[Pedestrian_Movement]"
+                      lineageId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].Columns[Pedestrian_Movement]"
+                      name="Pedestrian_Movement"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].Columns[Car_Passenger]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].ExternalColumns[Car_Passenger]"
+                      lineageId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].Columns[Car_Passenger]"
+                      name="Car_Passenger"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].Columns[Bus_or_Coach_Passenger]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].ExternalColumns[Bus_or_Coach_Passenger]"
+                      lineageId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].Columns[Bus_or_Coach_Passenger]"
+                      name="Bus_or_Coach_Passenger"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].Columns[Casualty_Type]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].ExternalColumns[Casualty_Type]"
+                      lineageId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].Columns[Casualty_Type]"
+                      name="Casualty_Type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].Columns[Casualty_Home_Area_Type]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].ExternalColumns[Casualty_Home_Area_Type]"
+                      lineageId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].Columns[Casualty_Home_Area_Type]"
+                      name="Casualty_Home_Area_Type"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].ExternalColumns[Accident_Index]"
+                      dataType="wstr"
+                      length="255"
+                      name="Accident_Index" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].ExternalColumns[Vehicle_Reference]"
+                      dataType="r8"
+                      name="Vehicle_Reference" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].ExternalColumns[Casualty_Reference]"
+                      dataType="r8"
+                      name="Casualty_Reference" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].ExternalColumns[Casualty_Class]"
+                      dataType="r8"
+                      name="Casualty_Class" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].ExternalColumns[Sex_of_Casualty]"
+                      dataType="r8"
+                      name="Sex_of_Casualty" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].ExternalColumns[Age_of_Casualty]"
+                      dataType="r8"
+                      name="Age_of_Casualty" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].ExternalColumns[Age_Band_of_Casualty]"
+                      dataType="r8"
+                      name="Age_Band_of_Casualty" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].ExternalColumns[Casualty_Severity]"
+                      dataType="r8"
+                      name="Casualty_Severity" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].ExternalColumns[Pedestrian_Location]"
+                      dataType="r8"
+                      name="Pedestrian_Location" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].ExternalColumns[Pedestrian_Movement]"
+                      dataType="r8"
+                      name="Pedestrian_Movement" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].ExternalColumns[Car_Passenger]"
+                      dataType="r8"
+                      name="Car_Passenger" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].ExternalColumns[Bus_or_Coach_Passenger]"
+                      dataType="r8"
+                      name="Bus_or_Coach_Passenger" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].ExternalColumns[Casualty_Type]"
+                      dataType="r8"
+                      name="Casualty_Type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].ExternalColumns[Casualty_Home_Area_Type]"
+                      dataType="r8"
+                      name="Casualty_Home_Area_Type" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Error Output].Columns[Accident_Index]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Error Output].Columns[Accident_Index]"
+                      name="Accident_Index" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Error Output].Columns[Vehicle_Reference]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Error Output].Columns[Vehicle_Reference]"
+                      name="Vehicle_Reference" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Error Output].Columns[Casualty_Reference]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Error Output].Columns[Casualty_Reference]"
+                      name="Casualty_Reference" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Error Output].Columns[Casualty_Class]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Error Output].Columns[Casualty_Class]"
+                      name="Casualty_Class" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Error Output].Columns[Sex_of_Casualty]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Error Output].Columns[Sex_of_Casualty]"
+                      name="Sex_of_Casualty" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Error Output].Columns[Age_of_Casualty]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Error Output].Columns[Age_of_Casualty]"
+                      name="Age_of_Casualty" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Error Output].Columns[Age_Band_of_Casualty]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Error Output].Columns[Age_Band_of_Casualty]"
+                      name="Age_Band_of_Casualty" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Error Output].Columns[Casualty_Severity]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Error Output].Columns[Casualty_Severity]"
+                      name="Casualty_Severity" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Error Output].Columns[Pedestrian_Location]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Error Output].Columns[Pedestrian_Location]"
+                      name="Pedestrian_Location" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Error Output].Columns[Pedestrian_Movement]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Error Output].Columns[Pedestrian_Movement]"
+                      name="Pedestrian_Movement" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Error Output].Columns[Car_Passenger]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Error Output].Columns[Car_Passenger]"
+                      name="Car_Passenger" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Error Output].Columns[Bus_or_Coach_Passenger]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Error Output].Columns[Bus_or_Coach_Passenger]"
+                      name="Bus_or_Coach_Passenger" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Error Output].Columns[Casualty_Type]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Error Output].Columns[Casualty_Type]"
+                      name="Casualty_Type" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Error Output].Columns[Casualty_Home_Area_Type]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Error Output].Columns[Casualty_Home_Area_Type]"
+                      name="Casualty_Home_Area_Type" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Casualties Stage"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Casualties Stage"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Casualties Stage]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Casualties Stage.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.Accident_Stage]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.Accident_Stage]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Casualties Stage.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Casualties Stage.Inputs[OLE DB Destination Input].Columns[Accident_Index]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Accident_Index"
+                      externalMetadataColumnId="Package\Data Flow Task\Casualties Stage.Inputs[OLE DB Destination Input].ExternalColumns[Accident_Index]"
+                      lineageId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].Columns[Accident_Index]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Casualties Stage.Inputs[OLE DB Destination Input].Columns[Vehicle_Reference]"
+                      cachedDataType="r8"
+                      cachedName="Vehicle_Reference"
+                      externalMetadataColumnId="Package\Data Flow Task\Casualties Stage.Inputs[OLE DB Destination Input].ExternalColumns[Vehicle_Reference]"
+                      lineageId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].Columns[Vehicle_Reference]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Casualties Stage.Inputs[OLE DB Destination Input].Columns[Casualty_Reference]"
+                      cachedDataType="r8"
+                      cachedName="Casualty_Reference"
+                      externalMetadataColumnId="Package\Data Flow Task\Casualties Stage.Inputs[OLE DB Destination Input].ExternalColumns[Casualty_Reference]"
+                      lineageId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].Columns[Casualty_Reference]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Casualties Stage.Inputs[OLE DB Destination Input].Columns[Casualty_Class]"
+                      cachedDataType="r8"
+                      cachedName="Casualty_Class"
+                      externalMetadataColumnId="Package\Data Flow Task\Casualties Stage.Inputs[OLE DB Destination Input].ExternalColumns[Casualty_Class]"
+                      lineageId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].Columns[Casualty_Class]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Casualties Stage.Inputs[OLE DB Destination Input].Columns[Sex_of_Casualty]"
+                      cachedDataType="r8"
+                      cachedName="Sex_of_Casualty"
+                      externalMetadataColumnId="Package\Data Flow Task\Casualties Stage.Inputs[OLE DB Destination Input].ExternalColumns[Sex_of_Casualty]"
+                      lineageId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].Columns[Sex_of_Casualty]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Casualties Stage.Inputs[OLE DB Destination Input].Columns[Age_of_Casualty]"
+                      cachedDataType="r8"
+                      cachedName="Age_of_Casualty"
+                      externalMetadataColumnId="Package\Data Flow Task\Casualties Stage.Inputs[OLE DB Destination Input].ExternalColumns[Age_of_Casualty]"
+                      lineageId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].Columns[Age_of_Casualty]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Casualties Stage.Inputs[OLE DB Destination Input].Columns[Age_Band_of_Casualty]"
+                      cachedDataType="r8"
+                      cachedName="Age_Band_of_Casualty"
+                      externalMetadataColumnId="Package\Data Flow Task\Casualties Stage.Inputs[OLE DB Destination Input].ExternalColumns[Age_Band_of_Casualty]"
+                      lineageId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].Columns[Age_Band_of_Casualty]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Casualties Stage.Inputs[OLE DB Destination Input].Columns[Casualty_Severity]"
+                      cachedDataType="r8"
+                      cachedName="Casualty_Severity"
+                      externalMetadataColumnId="Package\Data Flow Task\Casualties Stage.Inputs[OLE DB Destination Input].ExternalColumns[Casualty_Severity]"
+                      lineageId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].Columns[Casualty_Severity]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Casualties Stage.Inputs[OLE DB Destination Input].Columns[Pedestrian_Location]"
+                      cachedDataType="r8"
+                      cachedName="Pedestrian_Location"
+                      externalMetadataColumnId="Package\Data Flow Task\Casualties Stage.Inputs[OLE DB Destination Input].ExternalColumns[Pedestrian_Location]"
+                      lineageId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].Columns[Pedestrian_Location]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Casualties Stage.Inputs[OLE DB Destination Input].Columns[Pedestrian_Movement]"
+                      cachedDataType="r8"
+                      cachedName="Pedestrian_Movement"
+                      externalMetadataColumnId="Package\Data Flow Task\Casualties Stage.Inputs[OLE DB Destination Input].ExternalColumns[Pedestrian_Movement]"
+                      lineageId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].Columns[Pedestrian_Movement]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Casualties Stage.Inputs[OLE DB Destination Input].Columns[Car_Passenger]"
+                      cachedDataType="r8"
+                      cachedName="Car_Passenger"
+                      externalMetadataColumnId="Package\Data Flow Task\Casualties Stage.Inputs[OLE DB Destination Input].ExternalColumns[Car_Passenger]"
+                      lineageId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].Columns[Car_Passenger]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Casualties Stage.Inputs[OLE DB Destination Input].Columns[Bus_or_Coach_Passenger]"
+                      cachedDataType="r8"
+                      cachedName="Bus_or_Coach_Passenger"
+                      externalMetadataColumnId="Package\Data Flow Task\Casualties Stage.Inputs[OLE DB Destination Input].ExternalColumns[Bus_or_Coach_Passenger]"
+                      lineageId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].Columns[Bus_or_Coach_Passenger]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Casualties Stage.Inputs[OLE DB Destination Input].Columns[Casualty_Type]"
+                      cachedDataType="r8"
+                      cachedName="Casualty_Type"
+                      externalMetadataColumnId="Package\Data Flow Task\Casualties Stage.Inputs[OLE DB Destination Input].ExternalColumns[Casualty_Type]"
+                      lineageId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].Columns[Casualty_Type]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Casualties Stage.Inputs[OLE DB Destination Input].Columns[Casualty_Home_Area_Type]"
+                      cachedDataType="r8"
+                      cachedName="Casualty_Home_Area_Type"
+                      externalMetadataColumnId="Package\Data Flow Task\Casualties Stage.Inputs[OLE DB Destination Input].ExternalColumns[Casualty_Home_Area_Type]"
+                      lineageId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output].Columns[Casualty_Home_Area_Type]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Casualties Stage.Inputs[OLE DB Destination Input].ExternalColumns[Accident_Index]"
+                      dataType="wstr"
+                      length="255"
+                      name="Accident_Index" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Casualties Stage.Inputs[OLE DB Destination Input].ExternalColumns[Vehicle_Reference]"
+                      dataType="r8"
+                      name="Vehicle_Reference" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Casualties Stage.Inputs[OLE DB Destination Input].ExternalColumns[Casualty_Reference]"
+                      dataType="r8"
+                      name="Casualty_Reference" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Casualties Stage.Inputs[OLE DB Destination Input].ExternalColumns[Casualty_Class]"
+                      dataType="r8"
+                      name="Casualty_Class" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Casualties Stage.Inputs[OLE DB Destination Input].ExternalColumns[Sex_of_Casualty]"
+                      dataType="r8"
+                      name="Sex_of_Casualty" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Casualties Stage.Inputs[OLE DB Destination Input].ExternalColumns[Age_of_Casualty]"
+                      dataType="r8"
+                      name="Age_of_Casualty" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Casualties Stage.Inputs[OLE DB Destination Input].ExternalColumns[Age_Band_of_Casualty]"
+                      dataType="r8"
+                      name="Age_Band_of_Casualty" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Casualties Stage.Inputs[OLE DB Destination Input].ExternalColumns[Casualty_Severity]"
+                      dataType="r8"
+                      name="Casualty_Severity" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Casualties Stage.Inputs[OLE DB Destination Input].ExternalColumns[Pedestrian_Location]"
+                      dataType="r8"
+                      name="Pedestrian_Location" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Casualties Stage.Inputs[OLE DB Destination Input].ExternalColumns[Pedestrian_Movement]"
+                      dataType="r8"
+                      name="Pedestrian_Movement" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Casualties Stage.Inputs[OLE DB Destination Input].ExternalColumns[Car_Passenger]"
+                      dataType="r8"
+                      name="Car_Passenger" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Casualties Stage.Inputs[OLE DB Destination Input].ExternalColumns[Bus_or_Coach_Passenger]"
+                      dataType="r8"
+                      name="Bus_or_Coach_Passenger" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Casualties Stage.Inputs[OLE DB Destination Input].ExternalColumns[Casualty_Type]"
+                      dataType="r8"
+                      name="Casualty_Type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Casualties Stage.Inputs[OLE DB Destination Input].ExternalColumns[Casualty_Home_Area_Type]"
+                      dataType="r8"
+                      name="Casualty_Home_Area_Type" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Casualties Stage.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\Casualties Stage.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Casualties Stage.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Casualties Stage.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Casualties Stage.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Casualties Stage.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task\Casualties Stage.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\Casualties Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="151,42"
+          Id="Package\Data Flow Task"
+          TopLeft="256,122" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="162,42"
+          Id="Package\Data Flow Task\Casualties Source"
+          TopLeft="92,66" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Data Flow Task\Casualties Stage"
+          TopLeft="99,180" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="175,108">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,72"
+              Start="0,0"
+              End="0,64.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,64.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Casualties Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Casualties Stage">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
