@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Postcode"
   DTS:PackageType="5"
-  DTS:VersionBuild="4"
-  DTS:VersionGUID="{3695E413-B385-4F4F-BD3C-3C87B830B9DB}">
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{0A2691DA-7775-4E4B-9556-3152B873CCA1}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -73,7 +73,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[Postcode]</property>
+                  name="OpenRowset">[dbo].[Postcodes]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -127,24 +127,6 @@
                       length="255"
                       lineageId="Package\Data Flow Task\PostCode Source.Outputs[OLE DB Source Output].Columns[postcode]"
                       name="postcode"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\PostCode Source.Outputs[OLE DB Source Output].Columns[easting]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\PostCode Source.Outputs[OLE DB Source Output].ExternalColumns[easting]"
-                      lineageId="Package\Data Flow Task\PostCode Source.Outputs[OLE DB Source Output].Columns[easting]"
-                      name="easting"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\PostCode Source.Outputs[OLE DB Source Output].Columns[northing]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\PostCode Source.Outputs[OLE DB Source Output].ExternalColumns[northing]"
-                      lineageId="Package\Data Flow Task\PostCode Source.Outputs[OLE DB Source Output].Columns[northing]"
-                      name="northing"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Data Flow Task\PostCode Source.Outputs[OLE DB Source Output].Columns[latitude]"
@@ -205,16 +187,6 @@
                       name="country_name"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\PostCode Source.Outputs[OLE DB Source Output].Columns[iso3166-2]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\PostCode Source.Outputs[OLE DB Source Output].ExternalColumns[iso3166-2]"
-                      length="255"
-                      lineageId="Package\Data Flow Task\PostCode Source.Outputs[OLE DB Source Output].Columns[iso3166-2]"
-                      name="iso3166-2"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
                       refId="Package\Data Flow Task\PostCode Source.Outputs[OLE DB Source Output].Columns[region_code]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
@@ -242,14 +214,6 @@
                       dataType="wstr"
                       length="255"
                       name="postcode" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\PostCode Source.Outputs[OLE DB Source Output].ExternalColumns[easting]"
-                      dataType="r8"
-                      name="easting" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\PostCode Source.Outputs[OLE DB Source Output].ExternalColumns[northing]"
-                      dataType="r8"
-                      name="northing" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\PostCode Source.Outputs[OLE DB Source Output].ExternalColumns[latitude]"
                       dataType="r8"
@@ -279,11 +243,6 @@
                       length="255"
                       name="country_name" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\PostCode Source.Outputs[OLE DB Source Output].ExternalColumns[iso3166-2]"
-                      dataType="wstr"
-                      length="255"
-                      name="iso3166-2" />
-                    <externalMetadataColumn
                       refId="Package\Data Flow Task\PostCode Source.Outputs[OLE DB Source Output].ExternalColumns[region_code]"
                       dataType="wstr"
                       length="255"
@@ -306,16 +265,6 @@
                       length="255"
                       lineageId="Package\Data Flow Task\PostCode Source.Outputs[OLE DB Source Error Output].Columns[postcode]"
                       name="postcode" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\PostCode Source.Outputs[OLE DB Source Error Output].Columns[easting]"
-                      dataType="r8"
-                      lineageId="Package\Data Flow Task\PostCode Source.Outputs[OLE DB Source Error Output].Columns[easting]"
-                      name="easting" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\PostCode Source.Outputs[OLE DB Source Error Output].Columns[northing]"
-                      dataType="r8"
-                      lineageId="Package\Data Flow Task\PostCode Source.Outputs[OLE DB Source Error Output].Columns[northing]"
-                      name="northing" />
                     <outputColumn
                       refId="Package\Data Flow Task\PostCode Source.Outputs[OLE DB Source Error Output].Columns[latitude]"
                       dataType="r8"
@@ -350,12 +299,6 @@
                       length="255"
                       lineageId="Package\Data Flow Task\PostCode Source.Outputs[OLE DB Source Error Output].Columns[country_name]"
                       name="country_name" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\PostCode Source.Outputs[OLE DB Source Error Output].Columns[iso3166-2]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\Data Flow Task\PostCode Source.Outputs[OLE DB Source Error Output].Columns[iso3166-2]"
-                      name="iso3166-2" />
                     <outputColumn
                       refId="Package\Data Flow Task\PostCode Source.Outputs[OLE DB Source Error Output].Columns[region_code]"
                       dataType="wstr"
@@ -401,7 +344,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[PostCode]</property>
+                  name="OpenRowset">[PostCode Stage]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -465,18 +408,6 @@
                       externalMetadataColumnId="Package\Data Flow Task\PostCode Stage.Inputs[OLE DB Destination Input].ExternalColumns[postcode]"
                       lineageId="Package\Data Flow Task\PostCode Source.Outputs[OLE DB Source Output].Columns[postcode]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\PostCode Stage.Inputs[OLE DB Destination Input].Columns[easting]"
-                      cachedDataType="r8"
-                      cachedName="easting"
-                      externalMetadataColumnId="Package\Data Flow Task\PostCode Stage.Inputs[OLE DB Destination Input].ExternalColumns[easting]"
-                      lineageId="Package\Data Flow Task\PostCode Source.Outputs[OLE DB Source Output].Columns[easting]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\PostCode Stage.Inputs[OLE DB Destination Input].Columns[northing]"
-                      cachedDataType="r8"
-                      cachedName="northing"
-                      externalMetadataColumnId="Package\Data Flow Task\PostCode Stage.Inputs[OLE DB Destination Input].ExternalColumns[northing]"
-                      lineageId="Package\Data Flow Task\PostCode Source.Outputs[OLE DB Source Output].Columns[northing]" />
-                    <inputColumn
                       refId="Package\Data Flow Task\PostCode Stage.Inputs[OLE DB Destination Input].Columns[latitude]"
                       cachedDataType="r8"
                       cachedName="latitude"
@@ -517,13 +448,6 @@
                       externalMetadataColumnId="Package\Data Flow Task\PostCode Stage.Inputs[OLE DB Destination Input].ExternalColumns[country_name]"
                       lineageId="Package\Data Flow Task\PostCode Source.Outputs[OLE DB Source Output].Columns[country_name]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\PostCode Stage.Inputs[OLE DB Destination Input].Columns[iso3166-2]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="iso3166-2"
-                      externalMetadataColumnId="Package\Data Flow Task\PostCode Stage.Inputs[OLE DB Destination Input].ExternalColumns[iso3166-2]"
-                      lineageId="Package\Data Flow Task\PostCode Source.Outputs[OLE DB Source Output].Columns[iso3166-2]" />
-                    <inputColumn
                       refId="Package\Data Flow Task\PostCode Stage.Inputs[OLE DB Destination Input].Columns[region_code]"
                       cachedDataType="wstr"
                       cachedLength="255"
@@ -545,14 +469,6 @@
                       dataType="wstr"
                       length="255"
                       name="postcode" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\PostCode Stage.Inputs[OLE DB Destination Input].ExternalColumns[easting]"
-                      dataType="r8"
-                      name="easting" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\PostCode Stage.Inputs[OLE DB Destination Input].ExternalColumns[northing]"
-                      dataType="r8"
-                      name="northing" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\PostCode Stage.Inputs[OLE DB Destination Input].ExternalColumns[latitude]"
                       dataType="r8"
@@ -581,11 +497,6 @@
                       dataType="wstr"
                       length="255"
                       name="country_name" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\PostCode Stage.Inputs[OLE DB Destination Input].ExternalColumns[iso3166-2]"
-                      dataType="wstr"
-                      length="255"
-                      name="iso3166-2" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\PostCode Stage.Inputs[OLE DB Destination Input].ExternalColumns[region_code]"
                       dataType="wstr"
@@ -661,13 +572,13 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="158,42"
-          Id="Package\Data Flow Task\PostCode Source"
-          TopLeft="287,79" />
-        <NodeLayout
           Size="153,42"
           Id="Package\Data Flow Task\PostCode Stage"
           TopLeft="291,192" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Data Flow Task\PostCode Source"
+          TopLeft="287,79" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
           TopLeft="366.75,121">
